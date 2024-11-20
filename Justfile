@@ -17,6 +17,9 @@ gen-web:
 web:
   cd web && npm install && npm run dev
 
+mobile:
+  cd mobile && flutter pub get && flutter run
+
 # Run "go mod tidy" on all packages including tests
 tidy:
   git ls-files | grep go.mod | grep -v '{{{{' | xargs -n1 dirname | xargs -I {} sh -c 'cd {} && echo {} && go mod tidy'
