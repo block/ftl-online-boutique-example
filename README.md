@@ -1,11 +1,10 @@
 # FTL examples
 
 This repository contains an [FTL](https://github.com/block/ftl) implementation of
-[GCP's](https://github.com/GoogleCloudPlatform/microservices-demo) micro-services demo, Online Boutique.
+GCP's [microservices demo](https://github.com/GoogleCloudPlatform/microservices-demo), Online Boutique.
 
-The example highlights how to use FTL to build an online boutique backend, and use its schema to automatically generate
-clients for a mobile (Flutter) app and React
-frontend.
+The example highlights how to use FTL to build an online store backend, and use its schema to automatically generate
+clients for a mobile (Flutter) app and React frontend.
 
 > [!NOTE]
 > If using Hermit, be sure to open your editor from the activated environment in
