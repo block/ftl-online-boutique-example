@@ -1,1 +1,3 @@
+.hermit/
 **/.ftl
+backend/**/go.work
