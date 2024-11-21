@@ -3,7 +3,7 @@ _help:
 
 # Start the FTL backend with hot-reloading
 dev:
-  ftl dev --allow-origins '*'
+  ftl dev
 
 # Generate the mobile API client
 gen-mobile:

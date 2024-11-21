@@ -5,7 +5,7 @@ go 1.23.0
 replace github.com/block/ftl-online-boutique-example/backend/common => ../../common
 
 require (
-	github.com/TBD54566975/ftl v0.398.0
+	github.com/TBD54566975/ftl v0.398.1
 	github.com/block/ftl-online-boutique-example/backend/common v0.0.0-00010101000000-000000000000
 	golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f
 )
