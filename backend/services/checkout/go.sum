@@ -8,8 +8,8 @@ connectrpc.com/otelconnect v0.7.1 h1:scO5pOb0i4yUE66CnNrHeK1x51yq0bE0ehPg6WvzXJY
 connectrpc.com/otelconnect v0.7.1/go.mod h1:dh3bFgHBTb2bkqGCeVVOtHJreSns7uu9wwL2Tbz17ms=
 filippo.io/edwards25519 v1.1.0 h1:FNf4tywRC1HmFuKW5xopWpigGjJKiJSV0Cqo0cJWDaA=
 filippo.io/edwards25519 v1.1.0/go.mod h1:BxyFTGdWcka3PhytdK4V28tE5sGfRvvvRV7EaN4VDT4=
-github.com/TBD54566975/ftl v0.398.0 h1:ndpW5kXSORFfxcWBIlsfS3AvD+Z0MzKbcZLIcxc6Ddg=
-github.com/TBD54566975/ftl v0.398.0/go.mod h1:GhmNftQ97MeGJNUKpryzYpIUI5c2oEGZiMn7rTDnt4I=
+github.com/TBD54566975/ftl v0.398.1 h1:rbu1kmjF1PgofrgWJRTCtelAuyfY/nueIHmq7pD+c+k=
+github.com/TBD54566975/ftl v0.398.1/go.mod h1:GhmNftQ97MeGJNUKpryzYpIUI5c2oEGZiMn7rTDnt4I=
 github.com/XSAM/otelsql v0.35.0 h1:nMdbU/XLmBIB6qZF61uDqy46E0LVA4ZgF/FCNw8Had4=
 github.com/XSAM/otelsql v0.35.0/go.mod h1:wO028mnLzmBpstK8XPsoeRLl/kgt417yjAwOGDIptTc=
 github.com/alecthomas/assert/v2 v2.11.0 h1:2Q9r3ki8+JYXvGsDyBXwH3LcJ+WK5D0gc5E8vS6K3D0=

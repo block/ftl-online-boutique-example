@@ -3,7 +3,7 @@ module ftl/cart
 go 1.23.0
 
 require (
-	github.com/TBD54566975/ftl v0.398.0
+	github.com/TBD54566975/ftl v0.398.1
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 )
 
