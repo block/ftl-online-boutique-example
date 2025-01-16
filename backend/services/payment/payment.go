@@ -13,7 +13,7 @@ import (
 
 	"ftl/builtin"
 
-	"github.com/TBD54566975/ftl/go-runtime/ftl"
+	"github.com/block/ftl/go-runtime/ftl"
 )
 
 type ErrorResponse struct {

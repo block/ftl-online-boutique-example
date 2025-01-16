@@ -4,8 +4,8 @@ package payment
 import (
 	"context"
 	ftlbuiltin "ftl/builtin"
-	"github.com/TBD54566975/ftl/go-runtime/ftl"
-	"github.com/TBD54566975/ftl/go-runtime/ftl/reflection"
+	"github.com/block/ftl/common/reflection"
+	"github.com/block/ftl/go-runtime/ftl"
 )
 
 type ChargeClient func(context.Context, ftlbuiltin.HttpRequest[ChargeRequest, ftl.Unit, ftl.Unit]) (ftlbuiltin.HttpResponse[ChargeResponse, ErrorResponse], error)

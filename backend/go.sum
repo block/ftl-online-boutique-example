@@ -1,4 +1,4 @@
-github.com/TBD54566975/ftl v0.397.2 h1:gdZ7CKLf5vQ6rMMuGOS22FNeAkd9d992TV7K8hMtDxM=
-github.com/TBD54566975/ftl v0.397.2/go.mod h1:Jiawt123EcBkwSSliV7gL1l/l4slKVg0rb33bWfMyGE=
+github.com/block/ftl v0.397.2 h1:gdZ7CKLf5vQ6rMMuGOS22FNeAkd9d992TV7K8hMtDxM=
+github.com/block/ftl v0.397.2/go.mod h1:Jiawt123EcBkwSSliV7gL1l/l4slKVg0rb33bWfMyGE=
 golang.org/x/mod v0.22.0 h1:D4nJWe9zXqHOmWqj4VMOJhvzj7bEZg4wEYa759z1pH4=
 golang.org/x/mod v0.22.0/go.mod h1:6SkKJ3Xj0I0BrPOZoBy3bdMptDDU9oJrpohJ3eWZ1fY=

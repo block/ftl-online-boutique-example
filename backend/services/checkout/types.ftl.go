@@ -9,9 +9,9 @@ import (
 	ftlpayment "ftl/payment"
 	ftlproductcatalog "ftl/productcatalog"
 	ftlshipping "ftl/shipping"
-	"github.com/TBD54566975/ftl/go-runtime/ftl"
-	"github.com/TBD54566975/ftl/go-runtime/ftl/reflection"
-	"github.com/TBD54566975/ftl/go-runtime/server"
+	"github.com/block/ftl/common/reflection"
+	"github.com/block/ftl/go-runtime/ftl"
+	"github.com/block/ftl/go-runtime/server"
 )
 
 type PlaceOrderClient func(context.Context, ftlbuiltin.HttpRequest[PlaceOrderRequest, string, ftl.Unit]) (ftlbuiltin.HttpResponse[Order, ErrorResponse], error)

@@ -17,7 +17,7 @@ import (
 
 	"github.com/block/ftl-online-boutique-example/backend/common/money"
 
-	"github.com/TBD54566975/ftl/go-runtime/ftl"
+	"github.com/block/ftl/go-runtime/ftl"
 )
 
 type PlaceOrderRequest struct {

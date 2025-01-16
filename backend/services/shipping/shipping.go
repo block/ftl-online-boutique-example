@@ -11,7 +11,7 @@ import (
 	"ftl/builtin"
 	"ftl/cart"
 
-	"github.com/TBD54566975/ftl/go-runtime/ftl"
+	"github.com/block/ftl/go-runtime/ftl"
 )
 
 type Address struct {
