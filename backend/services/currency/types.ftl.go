@@ -4,8 +4,8 @@ package currency
 import (
 	"context"
 	ftlbuiltin "ftl/builtin"
-	"github.com/TBD54566975/ftl/go-runtime/ftl"
-	"github.com/TBD54566975/ftl/go-runtime/ftl/reflection"
+	"github.com/block/ftl/common/reflection"
+	"github.com/block/ftl/go-runtime/ftl"
 )
 
 type ConvertClient func(context.Context, ftlbuiltin.HttpRequest[ConvertRequest, ftl.Unit, ftl.Unit]) (ftlbuiltin.HttpResponse[Money, string], error)
