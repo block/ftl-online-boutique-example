@@ -15,9 +15,11 @@ type ShipOrderClient func(context.Context, ftlbuiltin.HttpRequest[ShippingReques
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			GetQuote,
 		),
+
 		reflection.ProvideResourcesForVerb(
 			ShipOrder,
 		),

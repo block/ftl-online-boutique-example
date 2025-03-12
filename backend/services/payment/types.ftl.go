@@ -12,6 +12,7 @@ type ChargeClient func(context.Context, ftlbuiltin.HttpRequest[ChargeRequest, ft
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			Charge,
 		),

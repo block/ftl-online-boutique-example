@@ -1,3 +1,4 @@
 .hermit/
 **/.ftl
 backend/**/go.work
+/.ftl-dev-logs

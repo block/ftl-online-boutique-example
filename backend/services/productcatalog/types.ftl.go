@@ -16,12 +16,15 @@ type SearchClient func(context.Context, SearchRequest) (SearchResponse, error)
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			Get,
 		),
+
 		reflection.ProvideResourcesForVerb(
 			List,
 		),
+
 		reflection.ProvideResourcesForVerb(
 			Search,
 		),

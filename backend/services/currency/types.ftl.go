@@ -14,9 +14,11 @@ type GetSupportedCurrenciesClient func(context.Context, ftlbuiltin.HttpRequest[f
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			Convert,
 		),
+
 		reflection.ProvideResourcesForVerb(
 			GetSupportedCurrencies,
 		),

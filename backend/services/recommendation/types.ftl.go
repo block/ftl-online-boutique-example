@@ -14,6 +14,7 @@ type ListClient func(context.Context, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit,
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			List,
 			server.VerbClient[ftlproductcatalog.ListClient, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit, ftlproductcatalog.ListRequest], ftlbuiltin.HttpResponse[ftlproductcatalog.ListResponse, ftl.Unit]](),

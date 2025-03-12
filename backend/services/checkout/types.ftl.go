@@ -18,6 +18,7 @@ type PlaceOrderClient func(context.Context, ftlbuiltin.HttpRequest[PlaceOrderReq
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			PlaceOrder,
 			server.VerbClient[ftlcart.GetCartClient, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit, ftlcart.GetCartRequest], ftlbuiltin.HttpResponse[ftlcart.Cart, ftl.Unit]](),

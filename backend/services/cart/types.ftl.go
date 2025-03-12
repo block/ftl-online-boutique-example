@@ -16,12 +16,15 @@ type GetCartClient func(context.Context, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Un
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			AddItem,
 		),
+
 		reflection.ProvideResourcesForVerb(
 			EmptyCart,
 		),
+
 		reflection.ProvideResourcesForVerb(
 			GetCart,
 		),
