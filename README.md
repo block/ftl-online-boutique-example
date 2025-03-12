@@ -15,7 +15,7 @@ clients for a mobile (Flutter) app and React frontend.
 In order to have all the tools you need to build and run the examples, either:
 
 1. Use [Hermit](https://github.com/cashapp/hermit): `. ./bin/activate-hermit`
-2. Use Homebrew: `brew tap TBD54566975/ftl && brew install flutter ftl go just node`
+2. Use Homebrew: `brew tap block/ftl && brew install flutter ftl go just node`
 
 > [!WARNING]
 > Be aware that Homebrew will install the most recent versions of these dependencies, which may not be compatible with

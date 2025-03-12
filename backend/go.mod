@@ -1,6 +1,6 @@
 module github.com/block/ftl-online-boutique-example/backend
 
-go 1.23.2
+go 1.24.0
 
 toolchain go1.23.3
 

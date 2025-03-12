@@ -12,6 +12,7 @@ type GetClient func(context.Context, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit, 
 
 func init() {
 	reflection.Register(
+
 		reflection.ProvideResourcesForVerb(
 			Get,
 		),
