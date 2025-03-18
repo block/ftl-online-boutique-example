@@ -4,23 +4,14 @@ package ad
 import (
 	"context"
 	_ "embed"
-	"math/rand"
+	"github.com/block/ftl/common/slices"
 
 	"ftl/builtin"
 
-	"golang.org/x/exp/maps"
-
-	"github.com/block/ftl-online-boutique-example/backend/common"
 	"github.com/block/ftl/go-runtime/ftl"
 )
 
 const maxAdsToServe = 2
-
-var (
-	//go:embed database.json
-	databaseJSON []byte
-	database     = common.LoadDatabase[map[string]Ad](databaseJSON)
-)
 
 type AdRequest struct {
 	ContextKeys []string
@@ -37,12 +28,16 @@ type AdResponse struct {
 }
 
 //ftl:ingress GET /ad
-func Get(ctx context.Context, req builtin.HttpRequest[ftl.Unit, ftl.Unit, AdRequest]) (builtin.HttpResponse[AdResponse, ftl.Unit], error) {
+func Get(ctx context.Context, req builtin.HttpRequest[ftl.Unit, ftl.Unit, AdRequest], getAds GetAdsClient, getAd GetAdClient) (builtin.HttpResponse[AdResponse, ftl.Unit], error) {
 	var ads []Ad
+	var err error
 	if len(req.Query.ContextKeys) > 0 {
-		ads = contextualAds(req.Query.ContextKeys)
+		ads, err = contextualAds(ctx, req.Query.ContextKeys, getAd)
+		if err != nil {
+			return builtin.HttpResponse[AdResponse, ftl.Unit]{}, err
+		}
 	} else {
-		ads = randomAds()
+		ads, err = randomAds(ctx, getAds)
 	}
 
 	return builtin.HttpResponse[AdResponse, ftl.Unit]{
@@ -50,19 +45,23 @@ func Get(ctx context.Context, req builtin.HttpRequest[ftl.Unit, ftl.Unit, AdRequ
 	}, nil
 }
 
-func contextualAds(contextKeys []string) (ads []Ad) {
+func contextualAds(ctx context.Context, contextKeys []string, client GetAdClient) (ads []Ad, err error) {
 	for _, key := range contextKeys {
-		if ad, ok := database[key]; ok {
-			ads = append(ads, ad)
+		ad, err := client(ctx, GetAdQuery{Name: key})
+		if err != nil {
+			return nil, err
 		}
+		ads = append(ads, Ad{RedirectURL: ad.Url, Text: ad.Text})
 	}
-	return ads
+	return ads, err
 }
 
-func randomAds() (ads []Ad) {
-	allAds := maps.Values(database)
-	for i := 0; i < maxAdsToServe; i++ {
-		ads = append(ads, allAds[rand.Intn(len(allAds))])
+func randomAds(ctx context.Context, client GetAdsClient) (ads []Ad, err error) {
+	ret, err := client(ctx)
+	if err != nil {
+		return nil, err
 	}
-	return ads
+	return slices.Map(ret, func(t GetAdsResult) Ad {
+		return Ad{RedirectURL: t.Url, Text: t.Text}
+	}), err
 }
