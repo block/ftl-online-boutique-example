@@ -2,33 +2,28 @@
 package ad
 
 import (
-    "context"
-    "github.com/block/ftl/common/reflection"
-    "github.com/block/ftl/go-runtime/ftl"
-    "github.com/block/ftl/go-runtime/server"
-    ftlbuiltin "ftl/builtin"
+	"context"
+	ftlbuiltin "ftl/builtin"
+	"github.com/block/ftl/common/reflection"
+	"github.com/block/ftl/go-runtime/ftl"
+	"github.com/block/ftl/go-runtime/server"
 )
 
-	
 type GetClient func(context.Context, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit, AdRequest]) (ftlbuiltin.HttpResponse[AdResponse, ftl.Unit], error)
-	
-
 
 //ftl:database mysql ads
-type AdsConfig struct {}
+type AdsConfig struct{}
 
 type AdsHandle = ftl.DatabaseHandle[AdsConfig]
 
 func init() {
 	reflection.Register(
 		reflection.Database[AdsConfig]("ads", server.InitMySQL),
-	
+
 		reflection.ProvideResourcesForVerb(
-            Get,
-            server.SourceClient[GetAdsClient, []GetAdsResult](),
-            server.VerbClient[GetAdClient, GetAdQuery, GetAdResult](),
+			Get,
+			server.SourceClient[GetAdsClient, []GetAdsResult](),
+			server.VerbClient[GetAdClient, GetAdQuery, GetAdResult](),
 		),
-	
-	
 	)
 }

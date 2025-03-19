@@ -1,7 +1,7 @@
 name = "onlineboutique"
 secrets-provider = "inline"
 config-provider = "inline"
-ftl-min-version = "0.397.2"
+ftl-min-version = "0.464.0"
 
 [commands]
   startup = [""]

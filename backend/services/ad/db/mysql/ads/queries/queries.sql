@@ -3,3 +3,6 @@ SELECT name, text,url FROM ads WHERE name = ?;
 
 -- name: GetAds :many
 SELECT name, text,url FROM ads ORDER BY rand() LIMIT 2;
+
+-- name: CreateAd :exec
+INSERT INTO ads (name, text, url) VALUES (?, ?, ?);

@@ -39,7 +39,6 @@ func Get(ctx context.Context, req builtin.HttpRequest[ftl.Unit, ftl.Unit, AdRequ
 	} else {
 		ads, err = randomAds(ctx, getAds)
 	}
-
 	return builtin.HttpResponse[AdResponse, ftl.Unit]{
 		Body: ftl.Some(AdResponse{Name: "ad", Ads: ads}),
 	}, nil

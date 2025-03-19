@@ -22,7 +22,7 @@ func init() {
 		reflection.ProvideResourcesForVerb(
 			PlaceOrder,
 			server.VerbClient[ftlcart.GetCartClient, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit, ftlcart.GetCartRequest], ftlbuiltin.HttpResponse[ftlcart.Cart, ftl.Unit]](),
-			server.VerbClient[ftlproductcatalog.GetClient, ftlbuiltin.HttpRequest[ftl.Unit, ftlproductcatalog.GetRequest, ftl.Unit], ftlbuiltin.HttpResponse[ftlproductcatalog.Product, ftlproductcatalog.ErrorResponse]](),
+			server.VerbClient[ftlproductcatalog.GetClient, ftlproductcatalog.GetRequest, ftlproductcatalog.GetResponse](),
 			server.VerbClient[ftlcurrency.ConvertClient, ftlbuiltin.HttpRequest[ftlcurrency.ConvertRequest, ftl.Unit, ftl.Unit], ftlbuiltin.HttpResponse[ftlcurrency.Money, string]](),
 			server.VerbClient[ftlshipping.GetQuoteClient, ftlbuiltin.HttpRequest[ftlshipping.ShippingRequest, ftl.Unit, ftl.Unit], ftlbuiltin.HttpResponse[ftlcurrency.Money, ftl.Unit]](),
 			server.VerbClient[ftlpayment.ChargeClient, ftlbuiltin.HttpRequest[ftlpayment.ChargeRequest, ftl.Unit, ftl.Unit], ftlbuiltin.HttpResponse[ftlpayment.ChargeResponse, ftlpayment.ErrorResponse]](),

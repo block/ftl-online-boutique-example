@@ -72,19 +72,14 @@ func PlaceOrder(ctx context.Context, req builtin.HttpRequest[PlaceOrderRequest, 
 
 	orders := make([]OrderItem, len(cartItems.Items))
 	for i, item := range cartItems.Items {
-		productsResp, err := productClient(ctx, builtin.HttpRequest[ftl.Unit, productcatalog.GetRequest, ftl.Unit]{PathParameters: productcatalog.GetRequest{Id: item.ProductId}})
+		productsResp, err := productClient(ctx, productcatalog.GetRequest{Id: item.ProductId})
 		if err != nil {
 			return builtin.HttpResponse[Order, ErrorResponse]{
 				Error: ftl.Some(ErrorResponse{Message: fmt.Sprintf("failed to get product #%q: %s", item.ProductId, err)}),
 			}, nil
 		}
 
-		products, ok := productsResp.Body.Get()
-		if !ok {
-			return builtin.HttpResponse[Order, ErrorResponse]{
-				Error: ftl.Some(ErrorResponse{Message: fmt.Sprintf("product not found: %q %s", item.ProductId, productsResp.Error.MustGet())}),
-			}, nil
-		}
+		products := productsResp.Product
 
 		priceResp, err := currencyConverter(ctx, builtin.HttpRequest[currency.ConvertRequest, ftl.Unit, ftl.Unit]{
 			Body: currency.ConvertRequest{

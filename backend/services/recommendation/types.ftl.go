@@ -17,7 +17,7 @@ func init() {
 
 		reflection.ProvideResourcesForVerb(
 			List,
-			server.VerbClient[ftlproductcatalog.ListClient, ftlbuiltin.HttpRequest[ftl.Unit, ftl.Unit, ftlproductcatalog.ListRequest], ftlbuiltin.HttpResponse[ftlproductcatalog.ListResponse, ftl.Unit]](),
+			server.SourceClient[ftlproductcatalog.ListClient, []ftlproductcatalog.Product](),
 		),
 	)
 }

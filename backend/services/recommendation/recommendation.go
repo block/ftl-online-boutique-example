@@ -28,17 +28,10 @@ type ErrorResponse struct {
 
 //ftl:ingress GET /recommendation
 func List(ctx context.Context, req builtin.HttpRequest[ftl.Unit, ftl.Unit, ListRequest], client productcatalog.ListClient) (builtin.HttpResponse[ListResponse, ErrorResponse], error) {
-	cresp, err := client(ctx, builtin.HttpRequest[ftl.Unit, ftl.Unit, productcatalog.ListRequest]{})
+	cresp, err := client(ctx)
 	if err != nil {
 		return builtin.HttpResponse[ListResponse, ErrorResponse]{
 			Error: ftl.Some(ErrorResponse{Message: fmt.Sprintf("%s: %w", "failed to retrieve product catalog", err)}),
-		}, nil
-	}
-
-	listResponse, ok := cresp.Body.Get()
-	if !ok {
-		return builtin.HttpResponse[ListResponse, ErrorResponse]{
-			Error: ftl.Some(ErrorResponse{Message: "failed to retrieve product catalog"}),
 		}, nil
 	}
 
@@ -48,8 +41,8 @@ func List(ctx context.Context, req builtin.HttpRequest[ftl.Unit, ftl.Unit, ListR
 	for _, id := range req.Query.UserProductIDs {
 		userIDs[id] = struct{}{}
 	}
-	filtered := make([]string, 0, len(listResponse.Products))
-	for _, product := range listResponse.Products {
+	filtered := make([]string, 0, len(cresp))
+	for _, product := range cresp {
 		if _, ok := userIDs[product.Id]; ok {
 			continue
 		}
