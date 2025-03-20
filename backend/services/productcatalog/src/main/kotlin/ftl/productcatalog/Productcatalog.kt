@@ -19,6 +19,7 @@ data class Product(
     val categories: List<String>
 )
 
+
 @Export
 data class SearchRequest(
     val query: String

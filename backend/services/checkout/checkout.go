@@ -79,7 +79,12 @@ func PlaceOrder(ctx context.Context, req builtin.HttpRequest[PlaceOrderRequest, 
 			}, nil
 		}
 
-		products := productsResp.Product
+		products, ok := productsResp.Product.Get()
+		if !ok {
+			return builtin.HttpResponse[Order, ErrorResponse]{
+				Error: ftl.Some(ErrorResponse{Message: fmt.Sprintf("product not found: %q", item.ProductId)}),
+			}, nil
+		}
 
 		priceResp, err := currencyConverter(ctx, builtin.HttpRequest[currency.ConvertRequest, ftl.Unit, ftl.Unit]{
 			Body: currency.ConvertRequest{
