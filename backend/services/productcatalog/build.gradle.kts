@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation(enforcedPlatform("xyz.block.ftl:ftl-jvm-bom:1.0-SNAPSHOT"))
+    implementation(enforcedPlatform("xyz.block.ftl:ftl-jvm-bom:0.469.0"))
     implementation("xyz.block.ftl:ftl-kotlin-runtime")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     testImplementation("io.quarkus:quarkus-junit5")

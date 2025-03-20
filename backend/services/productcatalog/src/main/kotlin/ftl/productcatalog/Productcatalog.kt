@@ -2,9 +2,6 @@ package ftl.productcatalog
 
 import ftl.currency.Money
 import xyz.block.ftl.*
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.fasterxml.jackson.module.kotlin.readValue
 import jakarta.ws.rs.GET
 import jakarta.ws.rs.NotFoundException
 import jakarta.ws.rs.Path
@@ -39,15 +36,8 @@ data class GetResponse(
 )
 
 // Load database from JSON
-private val database: List<Product> by lazy {
-    val mapper = ObjectMapper().registerModule(KotlinModule.Builder().build())
-    val json = ProductCatalog::class.java.getResourceAsStream("/database.json")?.bufferedReader()?.readText()
-        ?: throw RuntimeException("Could not load database.json")
-    mapper.readValue(json)
-}
+private var database: List<Product> = listOf()
 
-@Path("/")
-class ProductCatalog {
     @GET
     @Path("/productcatalog")
     fun listIngrees(): List<Product> {
@@ -88,4 +78,5 @@ class ProductCatalog {
         }
         return SearchResponse(results = results)
     }
-}
+
+
